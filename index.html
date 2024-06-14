@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan</title>
+  <link
+    rel="shortcut icon"
+    href="assets/icon.png"
+    type="image/x-icon"
+  />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="design/style.css">
+  <link
+    rel="stylesheet"
+    href="assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+  />
+  <script src="assets/bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid bg-transparent mt-5 text-center">
+    <div class="container-fluid bg-transparent">
+      <img src="assets/icon.png" alt="money" height="150px" width="auto">
+      <h1>LoanKe</h1>
+      <p>You can secure a loan at a favorable interest rate from various lenders.</p>
+    </div>
+  </div>
+
+  <div class="d-grid justify-content-center align-items-center vh-50 gap-3 mt-5">
+    <button type="button" class="btn btn-warning p-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#addLoanerModal" id="addLoanerButton">
+      <i class="bi bi-person-fill-add"></i><strong class="h5">Add Loaner</strong>
+    </button>
+
+    <button type="button" class="btn btn-warning p-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#loanersList" id="loanersListButton">
+      <i class="bi bi-person-lines-fill"></i><strong class="h5">Loaners List</strong>
+    </button>
+  </div>
+
+  <div class="modal fade" id="addLoanerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Loaner Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input type="text" class="form-control" id="address">
+            </div>
+            <div class="form-group">
+              <label for="contact">Contact:</label>
+              <input type="text" class="form-control" id="contact">
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount:</label>
+              <input type="text" class="form-control" id="amount">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+          <button type="button" class="btn btn-primary" id="loanBtn">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="loanersList" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Loaner Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Contact</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="list-container">
+                <!-- Your table rows will go here -->
+                <!-- Example row: -->
+                <!--
+                <tr>
+                  <td>John Doe</td>
+                  <td>123 Main St</td>
+                  <td>555-1234</td>
+                  <td>$1000</td>
+                </tr>
+                -->
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="function.js"></script>
+  <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope,
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      } else {
+        console.log("Service Worker is not supported in this browser.");
+      }
+  </script>
+
+</body>
+</html>

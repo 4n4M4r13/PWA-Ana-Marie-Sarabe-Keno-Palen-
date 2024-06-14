@@ -1,0 +1,39 @@
+{
+    "id": "/?source=pwa",
+    "lang": "en-us",
+    "name": "Loan App",
+    "short_name": "Loan",
+    "description": "The Loan Application is a user-friendly web-based platform designed to streamline the process of applying for loans. It offers a simple and intuitive interface for users to input their personal and loan-related information, ensuring a seamless and efficient experience.",
+    "start_url": "/index.html",
+    "scope": "/",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "assets/icon.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/screenshot2.png",
+            "type": "image/png",
+            "sizes": "610x864",
+            "form_factor":"narrow",
+            "purpose":"any",
+            "label": "Desktop screen"
+        },
+        {
+            "src": "assets/screenshot1.png",
+            "type": "image/png",
+            "sizes": "1913x854",
+            "form_factor":"wide",
+            "purpose":"any",
+            "label": "Desktop screen"
+        }
+    ]
+}
